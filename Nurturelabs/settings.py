@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure--2#(mg9p53s1&7*2qsbbo2nx8v@9zs3ry7z#0284x+s+fo*tc2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['https://nurturelabs-assignment-yash.herokuapp.com/','127.0.0.1']
 
 AUTH_USER_MODEL = 'authentication.User'
 
