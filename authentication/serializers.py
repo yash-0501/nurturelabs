@@ -20,7 +20,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        return User.objects.create_user(**validated_data)
+        return User.objects.create_user(**validated_data) #creates a new user on successful registration
 
 class LoginSerializer(serializers.ModelSerializer):
     email=serializers.EmailField()

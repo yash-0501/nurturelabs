@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User
 
-# Create your views here.
+#User Registration
 class RegistrationView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
@@ -21,6 +21,7 @@ class RegistrationView(generics.GenericAPIView):
         user_data = {"id":serializer.data["id"],"token":str(token)}
 
         return Response(user_data,status=status.HTTP_201_CREATED)
+        # returns userid and access token along with status code 201
 
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
@@ -29,6 +30,9 @@ class LoginView(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         response = Response()
         token = serializer.data["tokens"]
-        response.set_cookie(key='jtw', value=token)
         user_data = {"id":serializer.data["id"],"tokens":token}
         return Response(user_data,status=status.HTTP_200_OK)
+        # returns userid and access token along with status code 20
+
+    #The user is currently not being logged in the access token has to be passed in the header using postman to login.
+    #bearer <access_token>

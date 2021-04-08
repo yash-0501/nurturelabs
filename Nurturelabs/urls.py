@@ -20,7 +20,6 @@ from advisors.views import addAdvisorView
 
 urlpatterns = [
     path('administrator/', admin.site.urls),
-    path('user/', include('authentication.urls')),
+    path('user/', include('authentication.urls')), #in authentication app
     path('admin/advisor/', addAdvisorView.as_view(), name='add_advisor'),
-
 ]

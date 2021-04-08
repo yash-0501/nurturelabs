@@ -16,7 +16,7 @@ class addAdvisorSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        return Advisor.objects.create(**validated_data)
+        return Advisor.objects.create(**validated_data) #creates an advisor - only by admin
 
 
 class advisorSerializer(serializers.ModelSerializer):
@@ -30,7 +30,7 @@ class bookAdvisorSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Booking
-        fields = ['booking_time']
+        fields = ['booking_time','user','advisor']
     
     def validate(self, attrs):
 
@@ -39,7 +39,7 @@ class bookAdvisorSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
-        return Booking.objects.create(**validated_data)
+        return Booking.objects.create(**validated_data) #creates a new booking
 
 class listAllBookingsSerializer(serializers.ModelSerializer):
     advisor = advisorSerializer(read_only=True)
